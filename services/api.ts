@@ -28,19 +28,3 @@ export const fetchMovies = async ( {query}: {query: string} ) => {
 }
 
 
-
-
-
-// const url = 'https://api.themoviedb.org/3/authentication';
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmZmZmU0YWM0NjlmNGE1ZjJmMmRhODlkOGY0ZjQ2MSIsIm5iZiI6MTcwMzI1NzYyMC4yNDUsInN1YiI6IjY1ODVhNjE0ZDY0YWMyNTE3NjE0MzJlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hIjYMWuvBbjY1B2LLhiSXTEAOuoSWX-Fr0As8cRRTQo'
-//   }
-// };
-
-// fetch(url, options)
-//   .then(res => res.json())
-//   .then(json => console.log(json))
-//   .catch(err => console.error(err));
