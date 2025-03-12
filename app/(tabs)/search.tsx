@@ -7,6 +7,7 @@ import { fetchMovies } from '@/services/api'
 import useFetch from '@/services/useFetch'
 import { icons } from '@/constants/icons'
 import SearchBar from '@/components/SearchBar'
+import { updateSearchCount } from '@/services/appwrite'
 
 const search = () => {
 const [searchQuery, setSearchQuery] = useState('')
@@ -29,8 +30,15 @@ const [searchQuery, setSearchQuery] = useState('')
     }, 500);
 
    return () => clearTimeout(getMoviesId)
-   
+
   },[searchQuery])
+
+  useEffect(() => {
+    if(movies?.length > 0 && movies?.[0]){
+      updateSearchCount(searchQuery, movies[0])
+    }
+  },[movies])
+
   return (
     <View className='flex-1 bg-primary'>
       <Image source={images.bg} className="flex-1 absolute w-full z-0" />
@@ -66,6 +74,16 @@ const [searchQuery, setSearchQuery] = useState('')
           )
         }
         </>
+      }
+      ListEmptyComponent={
+        !moviesLoading && !moviesError ? (
+
+          <View className='flex justify-center items-center h-[100%]'>
+          <Text className='text-center text-gray-500'>
+            {searchQuery.trim() ? 'No movies found' : 'Type to start search movie'}
+            </Text>
+            </View>
+        ): null
       }
       />
     </View>
