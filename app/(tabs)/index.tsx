@@ -8,6 +8,7 @@ import { useRouter } from "expo-router";
 import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "react-native";
 
 export default function Index() {
+  const router = useRouter();
 
   const {
     data: movies,
@@ -17,7 +18,6 @@ export default function Index() {
     // reset: resetMovies,
   } = useFetch(() => fetchMovies({query: ''}));
 
-  const router = useRouter();
   return (
     <View className="flex-1 bg-primary">
       <Image source={images.bg} className="absolute w-full z-0" />
